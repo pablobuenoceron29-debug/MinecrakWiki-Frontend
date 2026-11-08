@@ -11,23 +11,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="p-4 border-b-2 border-stone-400">
             <h1 className="text-2xl font-bold tracking-widest uppercase">WIKI MINECRAFT</h1>
           </div>
+          
           <nav className="p-4 flex flex-col gap-4 text-lg">
             <div>
               <ul className="pl-2 flex flex-col gap-2">
                 <li><Link href="/" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Inicio</Link></li>
                 <li><Link href="/mobs" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Info de Mobs</Link></li>
+                <li><Link href="/items" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Guía de Ítems</Link></li>
+                <li><Link href="/structures" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Estructuras</Link></li>
               </ul>
             </div>
-          <nav className="p-4 flex flex-col gap-4 text-lg">
-  <div>
-    <ul className="pl-2 flex flex-col gap-2">
-      <li><Link href="/" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Inicio</Link></li>
-      <li><Link href="/mobs" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Info de Mobs</Link></li>
-      <li><Link href="/items" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Guía de Ítems</Link></li>
-      <li><Link href="/structures" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Estructuras</Link></li>
-    </ul>
-  </div>
-</nav>
+          </nav>
         </aside>
 
         {/* CONTENEDOR PRINCIPAL */}
