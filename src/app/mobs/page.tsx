@@ -16,8 +16,8 @@ export default function MobsPage() {
         // Llama al agente de datos que creaste en el paso 3
         const data = await mobsService.getAll();
         setMobs(data);
-      } catch (err) {
-        setError("Error de conexión con el backend.");
+      } catch (cause: unknown) {
+        setError(cause instanceof Error ? cause.message : "Error de conexión con el backend.");
       } finally {
         setLoading(false);
       }

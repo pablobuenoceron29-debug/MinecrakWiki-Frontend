@@ -96,6 +96,10 @@ export const apiClient = {
     const res = await request(path, { method: "PUT", headers: JSON_HEADERS, body: JSON.stringify(data) });
     return res.json();
   },
+  async patch<T>(path: string, data: unknown): Promise<T> {
+    const res = await request(path, { method: "PATCH", headers: JSON_HEADERS, body: JSON.stringify(data) });
+    return res.json();
+  },
   async delete<T>(path: string): Promise<T> {
     const res = await request(path, { method: "DELETE" });
     return res.json().catch(() => undefined as T);

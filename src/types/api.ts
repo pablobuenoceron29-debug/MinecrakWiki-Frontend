@@ -1,11 +1,18 @@
-export interface Mob {
-  id: string;
-  name: string;
-  health: number;
-  type: 'passive' | 'neutral' | 'hostile';
-  description: string;
-  imageUrl?: string;
+export type MobTipo = 'hostil' | 'neutral' | 'pasivo';
+export interface MobDrop {
+  item: string;
+  probabilidad_default: number;
 }
+export interface Mob {
+  id: number;
+  nombre: string;
+  tipo: MobTipo;
+  aspectoYComportamiento: string;
+  combateYDefensa: string[];
+  drops: MobDrop[];
+}
+export type CreateMobInput = Omit<Mob, 'id'>;
+export type UpdateMobInput = Partial<CreateMobInput>;
 export interface CreateOrderDto {
   userId: string;
   items: { productId: string; quantity: number }[];

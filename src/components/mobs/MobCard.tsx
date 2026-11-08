@@ -14,7 +14,7 @@ export function MobCard({ mob }: MobCardProps) {
           👾 
         </div>
         <span className="text-white text-center text-[16px] leading-tight capitalize">
-          {mob.name}
+          {mob.nombre}
         </span>
       </div>
     </Link>
