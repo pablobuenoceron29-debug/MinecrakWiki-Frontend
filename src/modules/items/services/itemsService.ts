@@ -8,7 +8,7 @@ export const itemsService = {
   
   create: (data: Partial<Item>) => apiClient.post<Item>("/items", data),
   
-  update: (id: string, data: Partial<Item>) => apiClient.put<Item>(`/items/${id}`, data),
+  update: (id: string, data: Partial<Item>) => apiClient.patch<Item>(`/items/${id}`, data),
   
   delete: (id: string) => apiClient.delete<void>(`/items/${id}`),
 };

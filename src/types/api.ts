@@ -18,10 +18,37 @@ export interface CreateOrderDto {
   items: { productId: string; quantity: number }[];
 }
 export interface Item {
-  id: string;
+  id: number | string;
   name: string;
   category: string;
   rarity: 'comun' | 'poco comun' | 'rara' | 'epica';
   description: string;
   stackSize: number;
+}
+
+export interface Structure {
+  id: number | string;
+  nombre: string;
+  dimension?: string;
+  descripcion?: string;
+  mobsComunes?: string[];
+  botin?: string[];
+}
+
+export interface PocionVariante {
+  nombre: string;
+  ingrediente: string;
+}
+export interface Pocion {
+  id: number;
+  nombre: string;
+  efecto: 'positivo' | 'negativo';
+  descripcion: string;
+  efectoYUso: string;
+  ingredienteBase: string;
+  variantes: PocionVariante[];
+  rareza: string;
+  tiempoConsumo: number;
+  consumible: boolean;
+  renovable: boolean;
 }

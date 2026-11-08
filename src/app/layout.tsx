@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <li><Link href="/mobs" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Info de Mobs</Link></li>
                 <li><Link href="/items" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Guía de Ítems</Link></li>
                 <li><Link href="/structures" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Estructuras</Link></li>
+                <li><Link href="/pociones" className="hover:text-black hover:bg-stone-300 px-1 block">&gt; Pociones</Link></li>
               </ul>
             </div>
           </nav>
