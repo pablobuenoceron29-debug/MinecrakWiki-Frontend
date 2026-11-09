@@ -1,22 +1,23 @@
 import Link from "next/link";
 import type { Mob } from "@/types/api";
 
-interface MobCardProps {
-  mob: Mob;
-}
+const mobImages: Record<string, string> = {
+  creeper: "Creeper.png", zombi: "Zombie.png", zombie: "Zombie.png",
+  esqueleto: "Skeleton.png", araña: "Spider.png", enderman: "Enderman.png",
+  "esqueleto del wither": "Wither_Skeleton.png", ghast: "Ghast.png", blaze: "Blaze.png",
+  slime: "Slime.png", "golem de hierro": "Iron_Golem.png", lobo: "Wolf.png",
+  vaca: "Cow.png", cerdo: "Pig.png", oveja: "Sheep.png", gallina: "Chicken.png",
+};
 
-export function MobCard({ mob }: MobCardProps) {
+export function MobCard({ mob }: { mob: Mob }) {
+  const image = mobImages[mob.nombre.toLowerCase()];
   return (
-    <Link href={`/mobs/${mob.id}`}>
-      <div className="bg-[#2a2a2a] border-4 border-stone-500 hover:border-white p-2 flex flex-col items-center justify-center cursor-pointer transition-colors aspect-square shadow-md">
-        {/* Cuadro gris para la imagen pixelada */}
-        <div className="w-16 h-16 bg-stone-700 mb-2 flex items-center justify-center text-4xl">
-          👾 
-        </div>
-        <span className="text-white text-center text-[16px] leading-tight capitalize">
-          {mob.nombre}
-        </span>
+    <Link href={`/mobs/${mob.id}`} className="entity-tile">
+      <div className="entity-art">
+        {image ? <img src={`https://minecraft.wiki/images/${image}`} alt={mob.nombre} loading="lazy" /> : <span>👾</span>}
       </div>
+      <span className="entity-name">{mob.nombre}</span>
+      <span className="entity-kind">{mob.tipo}</span>
     </Link>
   );
 }

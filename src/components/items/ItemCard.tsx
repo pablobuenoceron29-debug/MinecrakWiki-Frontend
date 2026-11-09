@@ -1,25 +1,14 @@
 import Link from "next/link";
 import type { Item } from "@/types/api";
 
-interface ItemCardProps {
-  item: Item;
-}
-
-export function ItemCard({ item }: ItemCardProps) {
+export function ItemCard({ item }: { item: Item }) {
+  const imageName = encodeURIComponent(item.name.replaceAll(" ", "_"));
   return (
-    <Link href={`/items/${item.id}`}>
-      <div className="bg-[#2a2a2a] border-4 border-stone-500 hover:border-white p-2 flex flex-col items-center justify-center cursor-pointer transition-colors aspect-square shadow-md relative">
-        {/* Slot visual temporal */}
-        <div className="w-12 h-12 bg-stone-700 mb-2 flex items-center justify-center text-2xl text-white">
-          📦
-        </div>
-        <span className="text-white text-center text-[14px] leading-tight truncate w-full">
-          {item.name}
-        </span>
-        <span className="absolute bottom-1 right-1 text-stone-400 text-xs font-mono">
-          {item.stackSize}
-        </span>
-      </div>
+    <Link href={`/items/${item.id}`} className="entity-tile">
+      <div className="entity-art"><img src={`https://minecraft.wiki/Special:FilePath/${imageName}.png`} alt={item.name} loading="lazy" onError={(event) => { event.currentTarget.style.display = "none"; }} /><span className="fallback-art">📦</span></div>
+      <span className="entity-name">{item.name}</span>
+      <span className="entity-kind">{item.category}</span>
+      <span className="entity-count">{item.stackSize}</span>
     </Link>
   );
 }

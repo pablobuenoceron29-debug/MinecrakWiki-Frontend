@@ -1,22 +1,54 @@
 @import "tailwindcss";
-
-:root {
-  --background: #f7f4ee;
-  --foreground: #172033;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-body {
-  background:
-    radial-gradient(circle at top right, rgb(251 191 36 / 12%), transparent 24rem),
-    radial-gradient(circle at left 22rem, rgb(56 189 248 / 8%), transparent 30rem),
-    var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+:root{--bg:#202329;--panel:#2d323b;--panel2:#252a32;--line:#454b55;--text:#e5e7eb;--muted:#aeb5c0;--green:#16834b;--green2:#20a45f;--font-sans:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}
+html,body{min-height:100%;margin:0}
+body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+.wiki-body{min-height:100vh;display:flex;background:#202329}
+.wiki-sidebar{width:245px;min-width:245px;background:#292e36;border-right:1px solid #111820;display:flex;flex-direction:column;min-height:100vh;padding:0 14px;box-shadow:3px 0 12px #0003}
+.wiki-brand{height:86px;display:flex;align-items:center;gap:11px;padding:12px 5px;border-bottom:1px solid #454b55;color:#fff;text-decoration:none;font-size:18px;font-weight:900;letter-spacing:1.5px}
+.wiki-brand small{display:block;font-size:10px;letter-spacing:4px;color:#aeb5c0;margin-top:3px}
+.brand-mark{width:43px;height:43px;display:grid;place-items:center;background:#16834b;border:3px solid #7abf91;color:#fff;font-size:27px;text-shadow:2px 2px #123b29;box-shadow:inset 0 0 0 3px #12623c}
+.sidebar-caption{font-size:10px;font-weight:800;letter-spacing:2px;color:#8993a1;margin:25px 10px 10px}
+.wiki-nav{display:flex;flex-direction:column;gap:5px}
+.wiki-nav-link{display:flex;align-items:center;gap:13px;padding:12px 11px;color:#d5d9df;text-decoration:none;border:1px solid transparent;font-size:15px;transition:.18s}
+.wiki-nav-link:hover{background:#373e48;border-color:#4d5662;color:#fff}
+.nav-icon{width:22px;text-align:center;color:#65bd88;font-size:19px}
+.sidebar-footer{margin-top:auto;padding:18px 7px 22px;border-top:1px solid #454b55;color:#8993a1;font-size:11px;line-height:1.7}
+.wiki-main{flex:1;min-width:0;min-height:100vh;display:flex;flex-direction:column;background:#202329}
+.wiki-topbar{height:48px;flex-shrink:0;background:#292e36;border-bottom:1px solid #111820;display:flex;align-items:center;justify-content:space-between;padding:0 27px;color:#e5e7eb;font-size:12px;font-weight:800;letter-spacing:1.5px}
+.topbar-status{color:#aeb5c0;font-size:10px;letter-spacing:1px}.topbar-status i{display:inline-block;width:7px;height:7px;background:#36b76d;border-radius:50%;margin-right:7px}
+.wiki-content{width:min(1440px,100%);margin:0 auto;padding:25px 28px;flex:1}
+.wiki-footer{padding:13px 28px;border-top:1px solid #383e48;color:#7f8997;font-size:10px;letter-spacing:1px}.wiki-footer span{color:#36a96b;margin:0 7px}
+/* Paneles y listados */
+.wiki-content h1{color:#f0f2f5!important;border-color:#505762!important;font-size:28px!important;font-weight:800!important;letter-spacing:.3px}
+.wiki-content h2{color:#f0f2f5!important;border-color:#505762!important}
+.wiki-content p{color:#c4cad3}
+.wiki-content [class*="bg-[#c6c6c6]"],.wiki-content [class*="bg-[#d5d5d5]"]{background:#343a44!important;border:1px solid #59616d!important;padding:13px!important}
+.wiki-content [class*="bg-[#2a2a2a]"],.wiki-content [class*="bg-[#c3c3c3]"]{background:#292e36!important;border:1px solid #59616d!important;color:#f1f3f5!important;box-shadow:0 3px 8px #0004!important}
+.wiki-content [class*="hover:border-white"]:hover{border-color:#36a96b!important;transform:translateY(-3px);box-shadow:0 7px 16px #0006!important}
+.wiki-content [class*="bg-stone-700"]{background:#414955!important}
+.wiki-content [class*="text-stone-800"],.wiki-content [class*="text-stone-900"]{color:#f0f2f5!important}
+.wiki-content [class*="text-stone-700"],.wiki-content [class*="text-stone-600"]{color:#c4cad3!important}
+.wiki-content [class*="border-[#8c7e68]"],.wiki-content [class*="border-stone-400"]{border-color:#59616d!important}
+.wiki-content [class*="bg-[#c6b497]"],.wiki-content [class*="bg-[#a7987f]"]{background:#2d323b!important;color:#e5e7eb!important}
+.wiki-content [class*="border-[#3e2910]"]{border-color:#414955!important}
+.wiki-content a[class*="bg-[#3e2910]"],.wiki-content a[class*="bg-[#5c3d18]"]{background:#16834b!important;border-color:#4a9d70!important}
+.wiki-content a[class*="bg-[#3e2910]"]:hover{background:#20a45f!important}
+.wiki-content .grid{gap:10px!important}
+.wiki-content .grid>a>div{min-height:130px;aspect-ratio:1/1}
+.wiki-content img{image-rendering:pixelated}
+@media(max-width:760px){.wiki-sidebar{width:75px;min-width:75px;padding:0 7px}.wiki-brand{justify-content:center;padding:8px 0}.wiki-brand>span:last-child,.sidebar-caption,.wiki-nav-link:not(.nav-icon),.sidebar-footer{display:none}.wiki-nav-link{justify-content:center;padding:13px 5px;font-size:0}.nav-icon{font-size:20px}.wiki-content{padding:17px 13px}.wiki-topbar{padding:0 14px}}
+/* Tarjetas de entidades con estética de inventario/wiki */
+.entity-tile{position:relative;min-width:0;min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:12px 8px;background:#292e36;border:1px solid #555e69;color:#f4f5f6;text-decoration:none;box-shadow:inset 0 1px #ffffff0b,0 3px 7px #0004;transition:transform .16s,border-color .16s,background .16s}
+.entity-tile:hover{background:#353d47;border-color:#38a86a;transform:translateY(-3px)}
+.entity-art{width:76px;height:76px;display:grid;place-items:center;position:relative;background:#373e48;border:1px solid #4b5562;padding:7px}
+.entity-art img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated;position:relative;z-index:1}
+.entity-art .fallback-art{position:absolute;font-size:35px;z-index:0}
+.entity-name{font-size:14px;font-weight:700;text-align:center;line-height:1.25;color:#f3f4f6;text-transform:capitalize;overflow-wrap:anywhere}
+.entity-kind{font-size:10px;color:#9da8b5;text-transform:uppercase;letter-spacing:.7px}
+.entity-count{position:absolute;right:7px;top:5px;color:#9da8b5;font-size:10px}
+.wiki-content .entity-tile{aspect-ratio:auto!important}
+.wiki-content .entity-tile>div{min-height:0!important}
+.home-page{padding:4px 0 30px}.home-hero{position:relative;overflow:hidden;padding:48px 48px 44px;background:linear-gradient(115deg,#303944 0%,#282e37 65%,#1f4937 140%);border:1px solid #4b5662;box-shadow:0 8px 22px #0003}.hero-label,.eyebrow{font-size:10px;letter-spacing:2px;font-weight:800;color:#80c99b}.hero-label span{display:inline-block;width:7px;height:7px;border-radius:50%;background:#38b66d;margin-right:8px}.home-hero h1{font-size:clamp(34px,5vw,58px)!important;line-height:1.06;margin:20px 0 14px;color:#fff!important;letter-spacing:-1.5px}.home-hero h1 span{color:#70c68f}.home-hero p{max-width:540px;font-size:15px;line-height:1.7;color:#c0c8d1;margin-bottom:25px}.hero-button{display:inline-flex;gap:25px;align-items:center;background:#16834b;color:#fff;text-decoration:none;padding:13px 18px;border:1px solid #48a875;font-size:11px;font-weight:800;letter-spacing:1px;transition:.2s}.hero-button:hover{background:#20a45f}.hero-button span{font-size:18px}.hero-decoration{position:absolute;right:8%;top:8%;font-size:180px;color:#ffffff09;transform:rotate(18deg);pointer-events:none}.section-heading{display:flex;align-items:end;justify-content:space-between;margin:34px 0 15px}.section-heading h2{font-size:22px!important;margin:5px 0 0}.section-count{font-size:10px;letter-spacing:1px;color:#8793a1}.home-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.home-card{display:flex;flex-direction:column;min-height:215px;padding:17px;background:#2b3039;border:1px solid #454d58;color:#fff;text-decoration:none;transition:.2s}.home-card:hover{transform:translateY(-3px);border-color:#37a86a;background:#323a44}.home-card-top{display:flex;justify-content:space-between;color:#8d99a7;font-size:9px;letter-spacing:1px;font-weight:800}.home-card-top b{color:#66717e}.home-card-icon{font-size:37px;margin:18px 0 10px;filter:drop-shadow(0 4px 4px #0005)}.home-card h3{font-size:18px;font-weight:800;margin:0 0 5px}.home-card p{font-size:12px;color:#aeb7c2;margin:0 0 18px}.home-card-link{margin-top:auto;padding-top:12px;border-top:1px solid #454d58;color:#79c895;font-size:9px;letter-spacing:1px;font-weight:800;display:flex;justify-content:space-between}.home-card-link span{font-size:15px}
+@media(max-width:1000px){.home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.home-hero{padding:30px 22px}.home-grid{grid-template-columns:1fr}.section-count{display:none}}
